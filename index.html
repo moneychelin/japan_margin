@@ -112,6 +112,15 @@
             document.getElementById("localPrice").value = "";
             document.getElementById("result").textContent = "";
         }
+
+        // 키보드 이벤트 처리
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                calculateProfit();
+            } else if (event.key === "Escape") {
+                resetFields();
+            }
+        });
     </script>
 </body>
 </html>

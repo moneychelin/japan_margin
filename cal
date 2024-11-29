@@ -64,14 +64,7 @@
         <h1>부미사 일구대 마진 계산기</h1>
 
         <label for="exchangeRate">일본 환율</label>
-        <select id="exchangeRate">
-            <script>
-                // 환율 옵션 동적으로 생성
-                for (let i = 85; i <= 120; i++) {
-                    document.write(`<option value="${i / 10}">${(i / 10).toFixed(2)}</option>`);
-                }
-            </script>
-        </select>
+        <select id="exchangeRate"></select>
 
         <label for="sellingPrice">판매가 (원)</label>
         <input type="text" id="sellingPrice" placeholder="숫자만 입력하세요">
@@ -86,6 +79,15 @@
     </div>
 
     <script>
+        // 환율 옵션 동적으로 생성
+        const exchangeRateSelect = document.getElementById("exchangeRate");
+        for (let i = 85; i <= 120; i++) {
+            const option = document.createElement("option");
+            option.value = (i / 10).toFixed(2);
+            option.textContent = (i / 10).toFixed(2);
+            exchangeRateSelect.appendChild(option);
+        }
+
         function calculateProfit() {
             const exchangeRate = parseFloat(document.getElementById("exchangeRate").value);
             const sellingPrice = parseInt(document.getElementById("sellingPrice").value.replace(/,/g, ""));

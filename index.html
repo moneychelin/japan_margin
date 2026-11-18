@@ -81,7 +81,7 @@
     <script>
         // 환율 옵션 동적으로 생성
         const exchangeRateSelect = document.getElementById("exchangeRate");
-        for (let i = 85; i <= 120; i++) {
+        for (let i = 75; i <= 100; i++) {
             const option = document.createElement("option");
             option.value = (i / 10).toFixed(2);
             option.textContent = (i / 10).toFixed(2);
@@ -99,7 +99,7 @@
             }
 
             // 순익 계산 공식
-            const profit = Math.round(sellingPrice * 0.96 - (localPrice * exchangeRate * 1.022));
+            const profit = Math.round(sellingPrice * 0.95 - (localPrice * exchangeRate * 1.022));
 
             // 결과 표시
             const resultElement = document.getElementById("result");
